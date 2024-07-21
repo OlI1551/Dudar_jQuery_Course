@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Манипулирование классами</title>
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // Ensure jQuery is loaded
+        // загружать jQuery здесь - иначе не будет работать в body
+        if (typeof jQuery == 'undefined') {
+            alert("jQuery is not loaded");
+        } else {
+            alert("jQuery is loaded successfully");
+        }
+    </script>
+    <style>
+        .div_1 {
+            background-color: #d65b5b;
+        }
+        .div_2 {
+            background-color: #99eb99;
+        }
+    </style>
+</head>
+<body>
+    <!-- Манипулирование классами является интересной и нужной темой при изучении библиотек jQuery.
+    В видео уроке мы научимся работать с классами при помощи jQuery библиотеки.
+
+    К объекту можно добавить отдельный класс за счёт использования функции attr().
+    В функцию необходимо передать название атрибута - class,
+    а в качестве второго параметра название класса, который мы хотим добавить.
+
+    Таким образом мы можем добавлять всевозможные новые классы к объектам,
+    тем самым меняя отображение объектов на странице.
+
+    $("#something").attr("class", "block");
+    В примере выше мы добавляем класс «block»
+    к элементу с идентификатором «something».-->
+
+    <div id="div">Text</div>
+
+    <script type="text/javascript">
+        var div = prompt("1 или 2?");
+        while (div != 1 && div != 2) { // вместо if лучше проверять while - пока пользоватлеь вводит чушь
+            alert("Пожалуйста, введите число 1 или 2");
+            div = prompt("1 или 2?");
+        }
+        $("#div").attr("class", "div_" + div);
+        alert($("#div").get(0).className); // все-таки обращаемся к массиву всех div
+    </script>
+    
+</body>
+</html>

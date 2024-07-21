@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выборка по Class</title>
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // Ensure jQuery is loaded
+        // загружать jQuery здесь - иначе не будет работать в body
+        if (typeof jQuery == 'undefined') {
+            alert("jQuery is not loaded");
+        } else {
+            alert("jQuery is loaded successfully");
+        }
+    </script>
+</head>
+<body>
+    <!-- В видео уроке вы научитесь находить различные элементы в HTML документе по их классу.
+     jQuery позволяет искать элементы несколькими способами и один из таких способов
+     это отбор элементов по классу (class).
+
+     jQuery позволяет выбирать элементы по их классу.
+     На странице может быть много элементов с одинаковым классом и только один с определенным id.
+     Это позволяет выбрать сразу набор элементов, которые имеют некий общий класс.
+     
+     Создадим HTML разметку:
+     <span class="colored">Просто блок</span>
+     <p class="colored">Небольшой блок</p>
+     <div class="colored">Совсем не строчный элемент</div>
+
+     Мы видим, что все элементы записаны в разных тегах,
+     но имеют один общий класс, по которому мы можем выбрать их все.
+
+     Пример jQuery:
+     var blocks = $(".colored");
+     var divBlocks = $("div.colored"); // Берем толлько элементы типа div с классом colored
+     blocks.hide(); // Скрыть все блоки
+     blocks.show(); // Показываем все элементы
+     blocks.css("color", "red"); // Установка цвета текста
+
+     Полученные элементы можно перебирать через циклы.
+     Чтобы взять определенный элемент воспользуйтесь функцией: get(ИНДЕКС ЭЛЕМЕНТА). -->
+
+     <div class="test">Test 1</div>
+     <div class="test">Test 2</div>
+     <p class="test">Test 3</p>
+     <p class="test">Test 4</p>
+
+     <script type="text/javascript">
+        var test = $("div.test");
+        for (var i = 0; i < test.length; i++) {
+            alert(test[i].innerHTML); // Выведутся во всплывающем окошке первые 2 элемента
+            test.get(i).style.color = "red"; // Первые 2 элемента поменяют цвет
+            // Если берем по классу, то это массив - а с ним нужно работать в цикле!!!
+            // Это надо помнить!!!
+        }
+        setTimeout("$('p.test').get(0).style.color = 'pink'", 2000);
+     </script>
+    
+</body>
+</html>

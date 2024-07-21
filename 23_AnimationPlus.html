@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Красивая анимация</title>
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // Ensure jQuery is loaded
+        // загружать jQuery здесь - иначе не будет работать в body
+        if (typeof jQuery == 'undefined') {
+            alert("jQuery is not loaded");
+        } else {
+            alert("jQuery is loaded successfully");
+        }
+    </script>
+    <script type="text/javascript">
+        function hideComments() {
+            // alert("123");
+            $("#comments").slideUp(1000, function() { // функция slideUp
+                $("#hide").hide();
+                $("#show").show();
+                // когда скрываем комментарий, ссылку скрыть комментарий прячем
+            });
+        }
+
+        function showComments() { // первый вариант
+            // alert("345");
+            $("#comments").slideDown(1000, function() { // функция slideDown
+                $("#show").hide();
+                $("#hide").show();
+                // когда показываем комментарий, ссылку показать комментарий прячем
+            });
+        }        
+
+        $(document).ready(function() {
+            $("#hide").bind("click", hideComments);
+            $("#show").bind("click", showComments);
+        });
+    </script>
+    <script type="text/javascript">
+        function hideComments1() {
+            // alert("123");
+            $("#comments1").fadeOut(1000, function() { // функция slideUp
+                $("#hide1").hide();
+                $("#show1").show();
+                // когда скрываем комментарий, ссылку скрыть комментарий прячем
+            });
+        }
+
+        function showComments1() { // первый вариант
+            // alert("345");
+            $("#comments1").fadeIn(1000, function() { // функция slideDown
+                $("#show1").hide();
+                $("#hide1").show();
+                // когда показываем комментарий, ссылку показать комментарий прячем
+            });
+        }        
+
+        $(document).ready(function() {
+            $("#hide1").bind("click", hideComments1);
+            $("#show1").bind("click", showComments1);
+        });
+    </script>
+</head>
+<body>
+    <!-- В прошлом уроке мы рассмотрели использование
+    нескольких стандартных функций для анимации в jQuery.
+    В уроке мы рассмотрим дополнительные функции
+    и научимся делать красивую анимацию объектов.
+
+    Помимо стандартных hide и show
+    вы также можете воспользоваться различными более красивыми анимациями:
+    fadeIn() и fadeOut();
+    slideUp() и slideDown(). -->
+
+    <a href="#" id="hide" onclick="return false">Скрыть комментарии</a>
+    <!-- если через стили работать, то делать обычным span в виде ссылки, return false добавлять уже не нужно -->
+    <a href="#" id="show" style="display:none" onclick="return false">Показать комментарии</a>
+
+    <div id="comments">
+        <p>Комментарий №1</p>
+        <p>Комментарий №2</p>
+        <p>Комментарий №3</p>
+    </div>
+
+    <br />
+    <br />
+
+    <a href="#" id="hide1" onclick="return false">Скрыть комментарии</a>
+    <!-- если через стили работать, то делать обычным span в виде ссылки, return false добавлять уже не нужно -->
+    <a href="#" id="show1" style="display:none" onclick="return false">Показать комментарии</a>
+
+    <div id="comments1">
+        <p>Комментарий №1</p>
+        <p>Комментарий №2</p>
+        <p>Комментарий №3</p>
+    </div>
+
+    
+</body>
+</html>

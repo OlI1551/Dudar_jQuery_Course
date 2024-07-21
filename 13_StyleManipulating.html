@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Манипулирование стилями</title>
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // Ensure jQuery is loaded
+        // загружать jQuery здесь - иначе не будет работать в body
+        if (typeof jQuery == 'undefined') {
+            alert("jQuery is not loaded");
+        } else {
+            alert("jQuery is loaded successfully");
+        }
+    </script>
+
+</head>
+<body>
+    <!-- Библиотека jQuery предоставляет возможность для управления стилями объекта.
+    Вы можете установить, обновить и удалить стили
+    за счёт специальной встроенной функции jQuery.
+    За урок мы познакомимся с функцией и научимся с ней работать.
+
+    В каждом HTML элементе при помощи jQuery можно добавить или обновить:
+    атрибуты;
+    содержимое;
+    CSS свойства.
+
+    Для атрибутов используется функция «attr», а также «removeAttr».
+    Для добавления CSS свойств используется функция «css».
+
+    Пример использования функции:
+    $("#menu").css("position", "fixed");
+    В примере мы добавляем фиксацию блока.
+    Подобное свойство удобно устанавливать в определенный момент,
+    например при прокрутке страницы пользователем.-->
+
+    <div id="div">Блок</div>
+
+    <script type="text/javascript">
+        $("#div").css("font-size", "25px");
+        $("#div").css("color", "red");
+
+        $("#div").css("background-color", function() {
+            return "blue";
+        });
+
+        $("#div").css("width", "250px");
+
+        $("#div").css("height", function() {
+            var height = prompt("Введите высоту: ");
+            // return $(this).width(); // this - тот же объект "#div"
+            // функция проверяет ширину объекта и назначает ее как высоту
+            return height + "px";
+        });
+    </script>
+    
+</body>
+</html>

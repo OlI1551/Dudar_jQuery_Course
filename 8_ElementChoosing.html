@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Еще один способ выбора элементов</title>
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // Ensure jQuery is loaded
+        // загружать jQuery здесь - иначе не будет работать в body
+        if (typeof jQuery == 'undefined') {
+            alert("jQuery is not loaded");
+        } else {
+            alert("jQuery is loaded successfully");
+        }
+    </script>
+</head>
+<body>
+    <!-- В уроке мы закрепим полученные знания и научимся правильно выбирать элементы из HTML разметки.
+    Также мы создадим небольшое приложение на основе полученных знаний.
+
+    Выборка элементов в jQuery осуществляется таким же образом что и в CSS.
+    В качестве селекторов вы можете прописывать те же данные, что прописывали в CSS.
+    
+    Кроме того, здесь также действуют различные псевдоклассы и псевдоэлементы,
+    которые позволяют выбрать лишь первый элемент или лишь каждый второй и так далее.
+
+    Пример использования псевдоклассов:
+    $("span:first"); // Будет выбран лишь первый span элемент в документе
+    $("div:last"); // Будет выбран последний div в документе -->
+
+    <ul id="menu">
+        <li><a href="">Ссылка 1</a></li>
+        <li><a href="">Ссылка 2</a></li>
+        <li><a href="">Ссылка 3</a></li>
+        <li><a href="">Ссылка 4</a></li>
+        <li><a href="">Ссылка 5</a></li>
+    </ul>
+    <li><a href="">Reference</a></li>
+
+    <script type="text/javascript">
+        var link = $("a");
+        var link1 = $('#menu li a');
+        var link3 = $('#menu li a:first');
+        alert(link3.html());
+
+        var link4 = $('#menu li a:eq(2)'); // эквивалент 2 по порядку элемента из всех в массиве
+        alert(link4.html());
+        
+    </script>    
+</body>
+</html>

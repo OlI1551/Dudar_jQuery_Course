@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Удаление элементов</title>
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // Ensure jQuery is loaded
+        // загружать jQuery здесь - иначе не будет работать в body
+        if (typeof jQuery == 'undefined') {
+            alert("jQuery is not loaded");
+        } else {
+            alert("jQuery is loaded successfully");
+        }
+    </script>
+</head>
+<body>
+    <!-- В jQuery есть просто и отличный способ удалить элемент из HTML документа.
+    За урок мы научимся удалять, а также очищать элементы при помощи библиотеки jQuery.
+
+    Функция удаления блоков очень полезна, так как она позволяет удалить
+    или же очистить какой-либо блок от любой информации внутри него.
+
+    Для полного удаления объектов необходимо использовать метод remove().
+    Он позволяет полностью удалить элемент из HTML-структуры сайта.
+
+    Если необходимо не удалить объект, а лишь полностью очистить от всего содержимого,
+    то необходимо использовать метод empty(). -->
+
+    <div id="div"><p>Абзац</p></div>
+    <div id="div_1"></div><br />
+
+    <img src="1.jpg" alt=" " />
+    <img src="4.jpg" />
+    <img src="2.jpg" alt=" " /> <!-- нельзя alt="" - не будет обозначать изображение -->
+    <img src="3.jpg" alt=" " /><br />
+    <img src="1.jpg" class="asd" alt="Изображение" title="Изображение" /><br />
+
+    <a href="#">1</a>
+    <a href="#">2</a>
+
+    <script type="text/javascript">
+        $("div").append("<span>Простой текст</span>"); // в несколько элементов добавляем элемент 
+        $('img').appendTo($("#div_1")); // несколько элементов добавляем в элемент
+
+        $("a").wrap("<p class='hrefs'></p>");
+
+        $("#div").remove();
+        $('#div_1').empty();
+        $("div").append("<span>Простой текст</span>"); // в несколько элементов добавляем элемент 
+    </script>
+    
+</body>
+</html>

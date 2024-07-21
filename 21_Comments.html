@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма комментариев</title>
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // Ensure jQuery is loaded
+        // загружать jQuery здесь - иначе не будет работать в body
+        if (typeof jQuery == 'undefined') {
+            alert("jQuery is not loaded");
+        } else {
+            alert("jQuery is loaded successfully");
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(document).on("click", "#add_comment", function() {
+                // будем прятать ссылку и открывать формочку
+                var form = $("form[name='form']"); // нашли форму
+                form.css("display", "block"); // показываем пользователю форму
+                // но ссылка остается внизу
+                // можно ссылку удалить remove() или очистить empty()
+                // выучим функцию, которая берет ширину одного элемента и заменяет ее на ширину другого
+                // тем самым заменяя элементы между собой
+                $("#add_comment").replaceWith(form);
+            });
+
+            $(document).on("click", "input[name='send']", function() {
+                var comment = $("textarea[name='comment']").val();
+                // взяли в переменную comment значение этого поля textarea
+                // делаем симуляцию, что у нас загружается комментарий с сервера
+                alert("Подождите, идет загрузка комментариев...");
+                // загрузку сделаем потом с PHP и AJAX
+                // нужно добавить комментарий в виде абзаца в самый конец div с комментариями
+                $("<p>" + comment + "</p>").appendTo("#comments");
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Урок будет действительно насыщенным,
+    так как за урок мы изучим новые функции
+    и на основе всех полученных знаний создадим полноценную форму комментариев.
+    Весь функционал для формы мы пропишем на основе библиотеки jQuery.
+
+    В ходе урока мы использовали все знания, что уже ранее были получены.
+    Единственной новой функцией стала replaceWith(),
+    которая заменяет один HTML блок на другой. -->
+
+    <div id="comments">
+        <p>Комментарий №1</p>
+        <p>Комментарий №2</p>
+        <p>Комментарий №3</p>
+    </div>
+
+    <form name="form" action="#" method="post" id="form" style="display:none" onsubmit="return false">
+    <!-- return false - останавливаем перезагрузку страницы после нажатия кнопки submit -->
+        <textarea id="textarea" name="comment" cols="40" rows="10"></textarea><br />
+        <input type="submit" name="send" value="Добавить комментарий" id="done" />
+    </form>    
+
+    <a href="#" onclick="return false" id="add_comment">Добавить комментарий</a>
+    <!-- return false - оснанавливает перезагрузку страницы после нажатия на ссылку-->
+</body>
+</html>

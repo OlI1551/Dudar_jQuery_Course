@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // Ensure jQuery is loaded
+        // загружать jQuery здесь - иначе не будет работать в body
+        if (typeof jQuery == 'undefined') {
+            alert("jQuery is not loaded");
+        } else {
+            alert("jQuery is loaded successfully");
+        }
+    </script>
+</head>
+<body>
+    <!-- В уроке мы изучим использование функции $() в библиотеки jQuery.
+    Через функцию можно выбирать элементы на странице
+    и добавлять к ним встроенные jQuery эффекты и функции.
+    Можно использовать $() или jQuery() - это одно и то же
+
+    Значение символа доллара $ является многогранным в jQuery.
+    При помощи этого знака мы можем указать что работаем непосредственно с объектами,
+    а не просто со строковыми данными.
+    К примеру, если мы хотим выбрать какой-либо тег и взять его как объект,
+    то мы воспользуемся этим знаком:
+
+    var block = $("div"); // Помещаем блок в переменную
+
+    Кроме того, мы можем ссылаться к различным методам и функциям через знак доллара. -->
+
+    <div id="test" onclick="$('#test').hide()">Test</div> 
+
+    <script type="text/javascript">
+        var str = "      stroka    ";
+        alert(str);
+        alert($.trim(str)); 
+    </script> 
+    <script>
+        var str = "   Hello, World!   ";
+
+        // Using jQuery's trim method
+        alert($.trim(str));
+
+        // Using native JavaScript trim method
+        alert(str.trim());
+    </script>    
+</body>
+</html>

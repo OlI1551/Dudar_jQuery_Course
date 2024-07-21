@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавление атрибутов</title>
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // Ensure jQuery is loaded
+        // загружать jQuery здесь - иначе не будет работать в body
+        if (typeof jQuery == 'undefined') {
+            alert("jQuery is not loaded");
+        } else {
+            alert("jQuery is loaded successfully");
+        }
+    </script>
+</head>
+<body>
+    <!-- В видео мы научимся работать с различными атрибутами.
+    Мы научимся добавлять атрибуты, проверять атрибуты и совершать действия в зависимости
+    от значения атрибута.
+
+    jQuery дает большие возможности при работе с различными атрибутами HTML тегов.
+    За счёт jQuery вы можете добавить класс, id, подсказку и множество других атрибутов к любому тегу.
+
+    Чтобы добавить атрибут к тегу необходимо выбрать тег через jQuery
+    и применить к нему метод attr ().
+    Он принимает два параметра: название атрибута, а также его значение.
+
+    Пример использования:
+    $("p:last-child").attr("title", "Это последний абзац в документе");
+    В коде выше мы добавляем всплывающую подсказку к последнему абзацу на HTML-странице.-->
+
+    <img src="1.jpg" class="asd" alt="Изображение" title="Изображение" /><br />
+    <img src="2.jpg" /><br />
+    <img src="3.jpg" /><br />
+    <img src="4.jpg" alt="Изображение" title="Изображение" /><br />
+    
+    <script type="text/javascript">
+        $(":not(img[alt])").attr ("alt", "jQuery"); // проверяем тэг img на наличие атрибута alt
+        // выбираем все тэги img без атрибута alt
+        $("img").not("img[alt]"); // выбираем img без атрибута alt - 2-й способ
+
+        var elements = $("img"); // создали массив из всех элементов с тэгом img
+        var text = ""; // создали текстовую переменную
+        for (var i = 0; i < elements.length; i++) // перебрали в цикле жлементы массива
+            text += elements[i].alt + "\n"; // записали в текстовую переменную значение атрибута alt элементов
+        alert(text); // вывели значения атрибутов alt всех элементов img
+
+        var text1 = "";
+        for (var i = 0; i < elements.length; i++)
+            text1 += elements[i].className + "\n"; // так искать названия классов элементов
+        alert(text1);
+
+
+    </script>
+
+</body>
+</html>

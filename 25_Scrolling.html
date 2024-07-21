@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Плавная прокрутка страницы</title>
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // Ensure jQuery is loaded
+        // загружать jQuery здесь - иначе не будет работать в body
+        if (typeof jQuery == 'undefined') {
+            alert("jQuery is not loaded");
+        } else {
+            alert("jQuery is loaded successfully");
+        }
+    </script>
+    <style>
+        #more {
+            margin-top: 2000px;
+            margin-bottom: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <div id="up"></div>
+    <a href="javascript://0" onclick="slowScroll ('#more')">Более подробно</a>
+    <!-- после нажатия ссылки прокрутка вниз до элемента more -->
+
+    <div id="more">Больше информации | <a
+        href="javascript://0" onclick="slowScroll ('#up')">Наверх</a></div>
+        <!-- после нажатия ссылки прокрутка вверх до элемента up-->
+
+    <script type="text/javascript">
+        function slowScroll(id) {
+            var offset = 0; // если есть шапка на сайте - поставить высоту шапки, чтоыбы не закрывала низ
+            $("html, body").animate({
+                scrollTop: $(id).offset().top - offset
+            }, 500); // скорость, с какой это все будет анамироваться
+            return false; // чтобы выходили из анимации 
+
+        }
+    </script>    
+</body>
+</html>

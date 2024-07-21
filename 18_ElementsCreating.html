@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание элементов</title>
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // Ensure jQuery is loaded
+        // загружать jQuery здесь - иначе не будет работать в body
+        if (typeof jQuery == 'undefined') {
+            alert("jQuery is not loaded");
+        } else {
+            alert("jQuery is loaded successfully");
+        }
+    </script>
+</head>
+<body>
+    <!-- За счёт jQuery можно быстро создавать объекты и добавлять их к общей HTML структуре.
+    К созданным объектам можно добавлять стили, атрибуты, содержимое и многое другое.
+
+    Для создания объектов необходимо прописать HTML-код,
+    добавить все в переменную, указать атрибуты и стили
+    и далее вставить переменную при помощи уже ранее изученных методов:
+    
+    append(), prepend(), insertAfter() и insertBefore(). -->
+
+    <div id="div"><p>Абзац</p></div>
+    <div id="div_1"></div>
+    <img src="1.png" alt="" />
+    <img src="2.png" alt="" />
+    <img src="3.png" alt="" /><br />
+
+    <a href="#">1</a>
+    <a href="#">2</a>
+
+    <script type="text/javascript">
+        $("div").append("<span>Простой текст</span>"); // в несколько элементов добавляем элемент 
+        $('img').appendTo($("#div_1")); // несколько элементов добавляем в элемент
+
+        $("a").wrap("<p style='display:none'></p>");
+    </script>
+    
+</body>
+</html>

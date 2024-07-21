@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создаем формочку</title>
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // Ensure jQuery is loaded
+        // загружать jQuery здесь - иначе не будет работать в body
+        if (typeof jQuery == 'undefined') {
+            alert("jQuery is not loaded");
+        } else {
+            alert("jQuery is loaded successfully");
+        }
+    </script>
+    <script type="text/javascript">
+        function valid() {
+            var state = $("input[name='sex']:checked").val(); // выбрали 2 инпута, у которых атрибут name=sex
+            if(!state) return $("#message").html("<font style='color:red'>Укажите ваш пол!</font><br />");
+            alert(state); // alert prompt confirm останавливают программу, дальше только после нажатия 
+            if(state == "male")
+                $("#img").show();
+        }
+    </script>
+</head>
+<body>
+    <!-- Мы подводим небольшие итоги по изучению библиотеки jQuery.
+     В видео мы создадим небольшую формочку, в которой мы получим данные от пользователя
+     и проверим их на корректность.
+
+     Мы уже изучили как можно выбирать различные элементы из общей HTML-структуры.
+     Это позволяет нам создавать уже немалый функционал на сайте с использованием различных элементов.
+
+     После выбора конкретных элементов к ним можно применять функции и методы jQuery.
+     В видео уроке мы с вами создали простейшую форму и научились её проверять. -->
+
+    <form name="form" id="form">
+        <label for="female">Женский</label>
+        <input type="radio" id="female" name="sex" value="female" />
+        <label for="male">Мужской</label>
+        <input type="radio" id="male" name="sex" value="male" />
+        <br /><br />
+        <span id="message"></span>
+        <input type="button" id="done" onclick="return valid()" value="Готово" />
+    </form>
+
+    <img src="1.jpg" style="display:none" id="img" />
+
+    <script type="text/javascript"></script>
+
+    
+</body>
+</html>

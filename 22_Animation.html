@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анимация</title>
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // Ensure jQuery is loaded
+        // загружать jQuery здесь - иначе не будет работать в body
+        if (typeof jQuery == 'undefined') {
+            alert("jQuery is not loaded");
+        } else {
+            alert("jQuery is loaded successfully");
+        }
+    </script>
+    <script type="text/javascript">
+        function hideComments() {
+            // alert("123");
+            $("#comments").hide(1000, function() {
+                $("#hide").hide();
+                $("#show").show();
+                // когда скрываем комментарий, ссылку скрыть комментарий прячем
+            });
+        }
+
+        // function showComments() { // первый вариант
+        //     // alert("345");
+        //     $("#comments").show(1000, function() {
+        //         $("#show").hide();
+        //         $("#hide").show();
+        //         // когда показываем комментарий, ссылку показать комментарий прячем
+        //     });
+        // }
+
+        function showComments() { // второй вариант
+            // alert("123");
+            $("#hide").show();
+            $("#show").hide();
+            $("#comments").show(1000);
+        }
+
+        $(document).ready(function() {
+            $("#hide").bind("click", hideComments);
+            $("#show").bind("click", showComments);
+        });
+    </script>
+</head>
+<body>
+    <!-- Библиотека jQuery позволяет указать анимацию для любых HTML объектов на странице.
+    За счёт анимации можно изменить стили объекта и сделать изменение плавно с течением времени.
+
+    Ранее мы уже рассматривали методы hide() и show().
+    Они позволяют либо спрятать, либо показать спрятанный объект.
+    
+    Помимо использования их без параметров с ними также можно работать передавая параметры.
+    Вы можете указать время за которое они должны сработать,
+    а также функцию, что должна быть выполнена после завершения анимации. -->
+
+    <!-- создадим 2 ссылки и поле с комментариями, ссылки будут скрывать-показывать это поле -->
+
+    <a href="#" id="hide" onclick="return false">Скрыть комментарии</a>
+    <!-- если через стили работать, то делать обычным span в виде ссылки, return false добавлять уже не нужно -->
+    <a href="#" id="show" style="display:none" onclick="return false">Показать комментарии</a>
+
+    <div id="comments">
+        <p>Комментарий №1</p>
+        <p>Комментарий №2</p>
+        <p>Комментарий №3</p>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Функция копирования объектов</title>
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // Ensure jQuery is loaded
+        // загружать jQuery здесь - иначе не будет работать в body
+        if (typeof jQuery == 'undefined') {
+            alert("jQuery is not loaded");
+        } else {
+            alert("jQuery is loaded successfully");
+        }
+    </script>
+</head>
+<body>
+    <!-- В видео уроке мы изучим функцию, что позволяет клонировать объекты.
+    Функция «clone» позволяет копировать элементы вместе со стилями,
+    атрибутами и содержимым блока.
+
+    Рассмотрим пример. Есть конструктор сайтов, на котором происходит создание различных страниц.
+    При создании новой страницы или новой секции на сайте
+    необходимо скопировать определенный блок и поместить его дубликат.
+    Без использования jQuery это был бы долгий процесс копирования всех значений,
+    стилей, дочерних объектов и так далее.
+    
+    При помощи функции clone() вы можете сделать это лишь в одну-две строчки кода.
+    
+    Пример реализации функции:
+    var clone = $("#some-block").clone();
+    // Теперь у вас есть клон объекта
+    $("body").append(clone);
+    // Размещение объекта на странице после body
+    В ходе клонирования копируется не только родительский элемент,
+    но и все дочерние объекты внутри него. -->
+
+    <div id="div" style="background-color: red">
+        Блок
+        <p>Абзац</p>
+    </div>
+
+    <script type="text/javascript">
+        var block = $("#div").clone(); // сделали клон нашего блока и поместили его в переменную
+
+        block.html("<p>Новый абзац</p>"); // поменяли стили у элемента блок
+        block.css("font-size", "40px");
+        block.css("width", "200px");
+
+        $('body').append(block); // в элемент body добавляем наш склонированный элемент block
+    </script>
+    
+</body>
+</html>

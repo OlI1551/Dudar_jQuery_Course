@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выборка по тэгам</title>
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // Ensure jQuery is loaded
+        // загружать jQuery здесь - иначе не будет работать в body
+        if (typeof jQuery == 'undefined') {
+            alert("jQuery is not loaded");
+        } else {
+            alert("jQuery is loaded successfully");
+        }
+    </script>
+</head>
+<body>
+    <!-- В видео уроке вы научитесь находить различные элементы в HTML документе по тегам.
+     jQuery позволяет искать элементы несколькими способами и один из таких способов
+     это отбор элементов по тегу.
+
+     jQuery позволяет выбирать элементы по их имени тега.
+     Это позволяет выбрать сразу набор элементов, которые принадлежат одному тегу. 
+
+     Создадим HTML разметку:
+     <span id="some">Просто блок</span>
+     <p class="colored">Небольшой блок</p>
+     <div>Совсем не строчный элемент</div>
+
+     Мы можем выбрать элементы по классу, идентификатору и по их тегу.
+     Сейчас выберем все элементы по тегу p.
+
+     Пример jQuery:
+     var blocks = $("p");
+     blocks.hide(); // Скрыть все теги p
+     blocks.show(); // Показываем все теги p
+     blocks.css("color", "red"); // Установка цвета текста в тегах p
+
+     Мы можем объединять выборки или же выбирать сразу несколько элементов через запятую.
+     В jQuery действуют те же правила выбора элементов, что и в CSS.-->
+
+    <div class="test">Test 1</div>
+    <div class="test">Test 2</div>
+    <p class="test">Test 3</p>
+    <p class="test">Test 4</p>
+
+    <img src="1.jpg" alt="1" />
+    <img src="2.jpg" alt="2" title="2" />
+
+    <script type="text/javascript">
+        var test = $('div'); // Таким образом мы выбрали все тэги div
+        alert(test.length); // Узнаем, сколько таких блоков у нас
+
+        var img = $("img[title]"); // Выбрали все тэги img, у которых присутствует атрибут title
+        alert(img.length);
+
+    </script>    
+
+    
+</body>
+</html>

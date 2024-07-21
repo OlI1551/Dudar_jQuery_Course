@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заключительный урок</title>
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // Ensure jQuery is loaded
+        // загружать jQuery здесь - иначе не будет работать в body
+        if (typeof jQuery == 'undefined') {
+            alert("jQuery is not loaded");
+        } else {
+            alert("jQuery is loaded successfully");
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#img").bind("click", function(event) {
+                $(event.target).parent().css("text-align", "center");
+                // поместили элемент по центру
+                $(event.target).animate ({
+                    width: $(event.target).width() * 2,
+                    height: $(event.target).height() * 2,
+                }, 3000); // функция (код выше) будет выполняться 3 секунды
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Наш видеокурс подошел к концу!
+    Теперь вы знаете jQuery и можете верстать различные функции для веб сайтов.
+    В уроке мы подведем небольшие итоги и узнаем куда двигаться дальше.
+
+    На закрепление знаний предлагаем просмотреть небольшой урок
+    по созданию красивого эффекта прокрутки на основе библиотеки jQuery. -->
+
+    <p id="test">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP18mdQCDLaGxqLaicy4KPl9eedloSKiCz-g&s"
+        alt="Изображение" title="Изображение" id="img" width="200"/>
+        <!-- будем делать, чтобы изображение появлялось по центру и увеличивалось -->
+    </p>
+    
+</body>
+</html>

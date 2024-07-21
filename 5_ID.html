@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выборка по ID</title>
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        // Ensure jQuery is loaded
+        // загружать jQuery здесь - иначе не будет работать в body
+        if (typeof jQuery == 'undefined') {
+            alert("jQuery is not loaded");
+        } else {
+            alert("jQuery is loaded successfully");
+        }
+    </script>
+</head>
+<body>
+    <!-- В видео уроке вы научитесь находить различные элементы в HTML документе по их идентификатору.
+     jQuery позволяет искать элементы несколькими способами и один из таких способов
+     это отбор элементов по ID.
+
+     Чтобы работать с элементами их изначально необходимо выбирать
+     из общей структуры HTML документа. В jQuery это можно сделать
+     несколькими способами и один из способов это выбирать объекты по их id.
+
+     К каждому HTML объекту можно задать некий идентификатор,
+     который не должен повторяться внутри одной HTML странице.
+     
+     Пример добавления id: 
+     <span id="some">Пример</span>
+
+     Теперь можно взять элемент используя его идентификатор:
+     $("#some").hide();
+     Прячем объект
+
+     var divBlock = $("#some");
+     Помещаем в переменную
+
+     $("#some").html();
+     Берем содержимое объекта
+
+     Мы можем поместить объект в переменную
+     или же применить к нему какие-либо функции после получения объекта.-->
+
+    <div id="test">Test</div>
+    <div class="new">New</div>
+    <script type="text/javascript">
+        var test = getElementById('test');
+        var test1 = $("#test").html();
+        var classNew = $(".new").html();
+        alert(test);        
+    </script>
+    <!-- если поместить script до блока с назначением нужного id - вызов этого id не сработает -->
+</body>
+</html>
